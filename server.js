@@ -33,8 +33,8 @@ app.get('/all', (req, res) => {
 app.post('/addData', (req, res) => {
     console.log(req.body)
     let data = req.body;
-    projectData['temp'] = data.temp;
-    projectData['feeling'] = data.feel;
+    projectData['temperature'] = data.temp;
+    projectData['feeling'] = data.feeling;
     projectData['date'] = data.date;
     res.send(projectData);
 });
