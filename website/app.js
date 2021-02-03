@@ -18,30 +18,31 @@ function weatherInfo() {
         .then((data) => {
             postData('/addData', {temperature: data.main.temp, feeling: feelings, date: newDate} );
         })
-        .then(
-            updateUI()
-        )
-}
+        .then(() => {
+            updateUI();
+        });
+};
 
 // GET function for weather data from API
 
 const retrieveWeatherData = async (baseURL, zipCode, apiKey) => {
-    const response = await fetch(baseURL+zipCode+apiKey);
+    console.log("retrieveWeather function running")
+    const res = await fetch(baseURL+zipCode+apiKey);
     try {
-        const data = await response.json();
+        const data = await res.json();
         console.log(data);
         return data;
     }catch(error) {
         console.log("error", error);
     }
 
-}
+};
 
 
 // POST data function
 
 const postData = async (url = '', data = {})=>{
-
+    console.log(data);
     const response = await fetch(url, {
     method: 'POST', 
     credentials: 'same-origin', 
@@ -53,11 +54,12 @@ const postData = async (url = '', data = {})=>{
 
     try {
       const newData = await response.json();
-      return newData
+      console.log(data);
+      return newData;
     } catch(error) {
     console.log("error", error);
     }
-}
+};
 
 // update UI
 
@@ -66,11 +68,11 @@ const updateUI = async () => {
 
     try{
         const allData = await request.json();
-        document.getElementById('date').innerHTML = alldata.date;
-        document.getElementById('temp').innerHTML = alldata.temp;
-        document.getElementById('content').innerHTML = alldata.feelings;
+        document.getElementById('date').innerHTML = allData.date;
+        document.getElementById('temp').innerHTML = allData.temperature;
+        document.getElementById('content').innerHTML = allData.feeling;
     } catch(error) {
         console.log("error", error);
     }
-}
+};
 
