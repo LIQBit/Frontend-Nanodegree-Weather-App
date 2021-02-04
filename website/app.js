@@ -16,7 +16,7 @@ function weatherInfo() {
     retrieveWeatherData(baseURL, zipCode, apiKey)
     
         .then((data) => {
-            postData('/addData', {temperature: data.main.temp, feeling: feelings, date: newDate} );
+            postData('/addData', {temperature: data.main.temperature, feeling: feelings, date: newDate} );
         })
         .then(() => {
             updateUI();
@@ -26,7 +26,7 @@ function weatherInfo() {
 // GET function for weather data from API
 
 const retrieveWeatherData = async (baseURL, zipCode, apiKey) => {
-    console.log("retrieveWeather function running")
+    
     const res = await fetch(baseURL+zipCode+apiKey);
     try {
         const data = await res.json();
@@ -42,7 +42,7 @@ const retrieveWeatherData = async (baseURL, zipCode, apiKey) => {
 // POST data function
 
 const postData = async (url = '', data = {})=>{
-    console.log(data);
+    
     const response = await fetch(url, {
     method: 'POST', 
     credentials: 'same-origin', 
@@ -54,7 +54,7 @@ const postData = async (url = '', data = {})=>{
 
     try {
       const newData = await response.json();
-      console.log(data);
+      console.log(newData);
       return newData;
     } catch(error) {
     console.log("error", error);

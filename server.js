@@ -26,18 +26,19 @@ app.use(express.static('website'));
 // get route for all data
 app.get('/all', (req, res) => {
     res.send(projectData);
-    console.log(projectData);
+    
 });
 
 // post route
 app.post('/addData', (req, res) => {
-    console.log(req.body)
     let data = req.body;
-    projectData['temperature'] = data.temp;
-    projectData['feeling'] = data.feeling;
+    projectData['temperature'] = data.temperature;
+    projectData['feelings'] = data.feelings;
     projectData['date'] = data.date;
     res.send(projectData);
+    
 });
+
 
 // Setup Server
 
