@@ -16,11 +16,12 @@ function weatherInfo() {
     retrieveWeatherData(baseURL, zipCode, apiKey)
     
         .then((data) => {
-            postData('/addData', {temperature: data.main.temperature, feeling: feelings, date: newDate} );
+            console.log('data', data);
+            postData('/addData', {temperature: data.main.temp, feelings: feelings, date: newDate} )
+            .then((data) => {
+                updateUI()
+            })
         })
-        .then(() => {
-            updateUI();
-        });
 };
 
 // GET function for weather data from API
@@ -68,10 +69,10 @@ const updateUI = async () => {
 
     try{
         const allData = await request.json();
-        console.log(allData);
+        console.log("alldata", allData);
         document.getElementById('date').innerHTML = allData.date;
         document.getElementById('temp').innerHTML = allData.temperature;
-        document.getElementById('content').innerHTML = allData.feeling;
+        document.getElementById('content').innerHTML = allData.feelings;
     } catch(error) {
         console.log("error", error);
     }
