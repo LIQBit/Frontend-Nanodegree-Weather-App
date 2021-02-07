@@ -35,6 +35,8 @@ app.post('/addData', (req, res) => {
     projectData['temperature'] = data.temperature;
     projectData['feelings'] = data.feelings;
     projectData['date'] = data.date;
+    projectData['name'] = data.name;
+    projectData['icon'] = data.icon;
     res.send(projectData);
     
 });

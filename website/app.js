@@ -1,6 +1,6 @@
 /* Global Variables */
-let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-let apiKey = '&appid=99c60259cdec10f270676338ff10cb13';
+let baseURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
+let apiKey = '&units=metric&appid=99c60259cdec10f270676338ff10cb13';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -17,7 +17,14 @@ function weatherInfo() {
     
         .then((data) => {
             console.log('data', data);
-            postData('/addData', {temperature: data.main.temp, feelings: feelings, date: newDate} )
+            
+            postData('/addData', {name: data.name,
+                                  feelings: feelings,
+                                  date: newDate,
+                                  temperature: data.main.temp,
+                                  icon: data.weather[0].icon,
+                                  localtime: data.timezone}
+                                   )
             .then((data) => {
                 updateUI()
             })
@@ -31,7 +38,6 @@ const retrieveWeatherData = async (baseURL, zipCode, apiKey) => {
     const res = await fetch(baseURL+zipCode+apiKey);
     try {
         const data = await res.json();
-        console.log(data);
         return data;
     }catch(error) {
         console.log("error", error);
@@ -55,7 +61,6 @@ const postData = async (url = '', data = {})=>{
 
     try {
       const newData = await response.json();
-      console.log(newData);
       return newData;
     } catch(error) {
     console.log("error", error);
@@ -70,9 +75,11 @@ const updateUI = async () => {
     try{
         const allData = await request.json();
         console.log("alldata", allData);
-        document.getElementById('date').innerHTML = allData.date;
-        document.getElementById('temp').innerHTML = allData.temperature;
-        document.getElementById('content').innerHTML = allData.feelings;
+        document.getElementById('date').innerHTML = `Date: ${allData.date}`;
+        document.getElementById('temp').innerHTML = `Current Temperature: ${allData.temperature}`;
+        document.getElementById('content').innerHTML = `I'm feeling: ${allData.feelings}`;
+        document.getElementById('name').innerHTML = `Location: ${allData.name}`;
+        document.getElementById('icon').innerHTML = `<img src="openweathermap/${allData.icon}.svg" alt="weather icon"/>`;
     } catch(error) {
         console.log("error", error);
     }
