@@ -1,7 +1,7 @@
 body{
     background-image: linear-gradient(to bottom right, rgb(44, 90, 216), rgb(219, 211, 139));
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    margin-left: 0px;
+    margin-left: -25px;
     height: 100%;
     width: 100%;
 }
@@ -17,7 +17,7 @@ body{
     color: white;
     justify-content: center;
     grid-gap: 1em;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Oswald', sans-serif;
     text-align: center;
     border-radius: 3%;
@@ -178,6 +178,7 @@ button:focus {
         grid-auto-rows: max-content;
         height: 100%;
         width: 100%;
+        margin-left: 25px
     }
 
     input{
