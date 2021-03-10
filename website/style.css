@@ -1,6 +1,9 @@
 body{
     background-image: linear-gradient(to bottom right, rgb(44, 90, 216), rgb(219, 211, 139));
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-left: 0px;
+    height: 100%;
+    width: 100%;
 }
 
 #app{
