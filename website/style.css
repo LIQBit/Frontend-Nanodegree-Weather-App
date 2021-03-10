@@ -177,8 +177,8 @@ button:focus {
     #app {
         grid-auto-rows: max-content;
         height: 100%;
-        width: 100%;
-        margin-left: 25px
+        width: 390px;
+        margin-left: 18px
     }
 
     input{
