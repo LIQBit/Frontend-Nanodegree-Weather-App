@@ -192,13 +192,34 @@ button:focus {
 
 @media (max-width: 900px) {
 
+    html {
+        height: 100%;
+    }
+
     body {
-        width: 375px;
+        display: flex;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+        
         /*background-image: linear-gradient(to bottom right, rgb(44, 90, 216), rgb(219, 211, 139));
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;*/
-        margin-left: -25px;
         height: 100%;
         width: 100%;
+    }
+
+    .headline {
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    h1 {
+        font-size: 0.6em;
+    }
+
+    #zipholder {
+        display: flex;
     }
     
     #app {
@@ -208,10 +229,18 @@ button:focus {
         width: 100%;
     }
 
-    input{
-        margin-top: 100px;
-        margin-left: 50px;
-    }
+    input {
+        display: block;
+        height: 45px;
+        width: 78%;
+        text-align: center;
+        padding-left: 10px;
+        background: rgba(255, 255, 255, 0);
+        color: white;
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+        border: black 1px;
+        border-radius: 30px;
 
     textarea{
         margin-left: 50px;
