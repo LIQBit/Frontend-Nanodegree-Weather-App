@@ -1,7 +1,7 @@
 # Weather-Journal App Project
 
 ## Overview
-This is the third project in the Udacity Frontend Nanodegree. The aim of the project was to build an asynchronous web app using an API (Openweather) and dynamically update the UI with data retrieved from the API.
+This is the third project in the [Udacity Frontend Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011). The aim of the project was to build an asynchronous web app using an API (Openweather) and dynamically update the UI with data retrieved from the API.
 
 ## Technolgies Used
 HTML, CSS, JavaScript(Vanilla)
@@ -18,4 +18,4 @@ HTML, CSS, JavaScript(Vanilla)
 
 ## Features
 Animated weather icons.
-Weather icons package for Openweather created by Bas Milius. Copyright (c) 2020-2021 Bas Milius
+Weather icons package for [Openweather](https://openweathermap.org/) created by Bas Milius. Copyright (c) 2020-2021 Bas Milius
